@@ -17,7 +17,7 @@ To learn more before you start working with hello, see the following documentati
 If you want to start working on your project right away, you might want to try the following commands:
 
 ```bash
-cd hello/
+cd <project-dir>/ 
 dfx help
 dfx config --help
 ```

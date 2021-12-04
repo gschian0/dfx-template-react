@@ -45,7 +45,7 @@ module.exports = {
   entry: {
     // The frontend.entrypoint points to the HTML file for this build, so we need
     // to replace the extension to `.js`.
-    index: path.join(__dirname, asset_entry).replace(/\.html$/, ".jsx"),
+    index: path.join(__dirname, asset_entry).replace(/\.html$/, ".tsx"),
   },
   devtool: isDevelopment ? "source-map" : false,
   optimization: {
@@ -93,7 +93,10 @@ module.exports = {
     }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
-      HELLO_CANISTER_ID: canisters["hello"]
+      HELLO_CANISTER_ID: canisters["hello"],
+      II_URL: isDevelopment
+        ? "http://localhost:8080/?canisterId=rwlgt-iiaaa-aaaaa-aaaaa-cai#authorize"
+        : "https://identity.ic0.app/#authorize",
     }),
     new webpack.ProvidePlugin({
       Buffer: [require.resolve("buffer/"), "Buffer"],
@@ -117,3 +120,8 @@ module.exports = {
     port: 3000
   },
 };
+
+
+// II_URL: isDevelopment
+//          "http://localhost:8000?canisterId=rkp4c-7iaaa-aaaaa-aaaca-cai#authorize" ?
+//         : "https://identity.ic0.app/#authorize",

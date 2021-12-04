@@ -1,3 +1,8 @@
 service : {
-  greet: (text) -> (text);
+  get: () -> (nat) query;
+  getCounter: () -> (nat);
+  getPrincipal: () -> (principal);
+  getTime: () -> (int);
+  increment: () -> (nat);
+  set: (nat) -> ();
 }
